@@ -19,7 +19,7 @@ async def process_start_command(message: types.Message):
 
 @dp.message_handler(commands=['help'])
 async def process_help_command(message: types.Message):
-    await message.reply("Я помогу тебе конвертировать в рубли любую валюту. Если ты хочешь задать новый курс, введи /save_currency")
+    await message.reply("Я помогу тебе конвертировать в рубли любую валюту. Если ты хочешь задать новый курс, введи /save_currency. Если хочешь конвертировать валюту в рубли, напиши /convert")
 
 class States(StatesGroup):
     Cur_name = State()
