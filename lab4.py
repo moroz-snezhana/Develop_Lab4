@@ -37,7 +37,7 @@ async def process_save_input(message: types.Message):
 @dp.message_handler(state=States.Cur_name)
 async def currency_process(message: Message, state: FSMContext):
     await state.update_data(currency=message.text)
-    await message.answer("Теперь введи курс к рублю")
+    await message.answer("Теперь введи курс к рублю:")
     await States.Exchange_to_ruble.set()
 
 @dp.message_handler(state=States.Exchange_to_ruble)
@@ -50,12 +50,12 @@ async def rate_process(message: Message, state: FSMContext):
 @dp.message_handler(commands=['convert'])
 async def currency_name(message: Message):
     await States.Name_of_cur.set()
-    await message.answer("Введите название валюты")
+    await message.answer("Введи название валюты:")
 
 @dp.message_handler(state=States.Name_of_cur)
 async def summa_process(message: Message, state: FSMContext):
     await state.update_data(our_currency=message.text)
-    await message.answer("Введите сумму в указанной валюте")
+    await message.answer("Введи сумму в указанной валюте:")
     await States.Summa.set()
 
 @dp.message_handler(state=States.Summa)
